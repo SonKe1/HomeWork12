@@ -60,10 +60,25 @@ public class ProductRepositoryTest {
         Product book2 = new Book(4, "Война и мир", 120, "Толстой");
         repository.save(book);
         repository.save(smartphone);
+        repository.save(book2);
         repository.deleteById(4);
         Product[] expected = {smartphone};
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldFindId() {
+        ProductRepository repository = new ProductRepository();
+        repository.save(book);
+        repository.save(smartphone);
+        repository.save(book2);
+        repository.save(smartphone1);
+
+        assertThrows(NotFoundException.class, () -> {
+            repository.deleteById(15);
+        });
+    }
+
 
 }

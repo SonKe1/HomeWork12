@@ -54,7 +54,7 @@ class ProductManagerTest {
         repository.save(book1 = new Book(5, "Жизнь взаймы", 150, "Ремарк"));
         repository.save(smartphone3 = new Smartphone(7, "iPhone", 800, "Apple"));
         String text = "iPhone";
-        Product[] expected = {smartphone,smartphone3};
+        Product[] expected = {smartphone, smartphone3};
         Product[] actual = manager.searchBy(text);
         assertArrayEquals(expected, actual);
     }
