@@ -53,21 +53,6 @@ public class ProductRepositoryTest {
     }
 
     @Test
-    public void shouldRemoveByWrongId() {
-        ProductRepository repository = new ProductRepository();
-        Product book = new Book(4, "Код да Винчи", 110, "Дэн Браун");
-        Product smartphone = new Smartphone(1, " iPhone 13", 1000, "Apple");
-        Product book2 = new Book(4, "Война и мир", 120, "Толстой");
-        repository.save(book);
-        repository.save(smartphone);
-        repository.save(book2);
-        repository.deleteById(4);
-        Product[] expected = {smartphone};
-        Product[] actual = repository.findAll();
-        assertArrayEquals(expected, actual);
-    }
-
-    @Test
     public void shouldFindId() {
         ProductRepository repository = new ProductRepository();
         repository.save(book);
